@@ -1,0 +1,343 @@
+
+.pagely-reader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--paper, #FBF6EA);
+  color: var(--ink, #402A18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pagely-reading-surface {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 30px 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pagely-reading-text {
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.9;
+  word-wrap: break-word;
+}
+
+.pagely-reading-text h2 {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1.5em;
+}
+
+.pagely-reading-text p {
+  margin-bottom: 1.5em;
+  white-space: pre-wrap;
+}
+
+.pagely-chapter-content {
+  white-space: normal;
+}
+
+.pagely-pdf-frame {
+  border: none;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+.pagely-reader-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface, #FFFCF6);
+  border-bottom: 1px solid var(--divider, #E8DDCB);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+.pagely-reader-icon,
+.pagely-reader-floating-menu {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  background: var(--surface-alt, #F3ECE0);
+  border: 1px solid var(--divider, #E8DDCB);
+  color: var(--ink, #402A18);
+  font-size: 18px;
+}
+
+.pagely-reader-heading {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 3px;
+}
+
+.pagely-reader-heading strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pagely-reader-heading span {
+  font-size: 12px;
+  color: var(--muted, #7A6A56);
+}
+
+.pagely-reader-progress {
+  grid-column: 1 / -1;
+  height: 5px;
+  background: var(--secondary, #F4EDE0);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pagely-reader-progress div {
+  height: 100%;
+  background: var(--primary, #7A6244);
+  transition: width 0.2s ease;
+}
+
+.pagely-reader-floating-menu {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  opacity: 0.92;
+}
+
+.pagely-reader-bottom {
+  background: var(--surface, #FFFCF6);
+  border-top: 1px solid var(--divider, #E8DDCB);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+.pagely-reader-bottom button,
+.pagely-menu-actions button {
+  background: var(--primary, #7A6244);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.pagely-reader-bottom button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagely-font-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.pagely-font-controls button {
+  background: var(--surface-alt, #F3ECE0);
+  color: var(--ink, #402A18);
+  border: 1px solid var(--divider, #E8DDCB);
+}
+
+.pagely-reader-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagely-reader-menu {
+  width: min(380px, 90%);
+  height: 100%;
+  background: var(--surface, #FFFCF6);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  overflow: hidden;
+  border-radius: 24px 0 0 24px;
+}
+
+.pagely-menu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pagely-menu-heading h3 {
+  font-size: 18px;
+}
+
+.pagely-menu-heading button,
+.pagely-saved-card > button:last-child {
+  background: var(--surface-alt, #F3ECE0);
+  color: var(--ink, #402A18);
+  border: 1px solid var(--divider, #E8DDCB);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.pagely-menu-actions {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 16px;
+}
+
+.pagely-menu-actions button {
+  flex: 1;
+}
+
+.pagely-menu-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.pagely-menu-list h4 {
+  margin-top: 18px;
+}
+
+.pagely-empty-message {
+  font-size: 14px;
+  color: var(--muted, #7A6A56);
+}
+
+.pagely-saved-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--divider, #E8DDCB);
+  background: var(--card, #FFFDF9);
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+
+.pagely-saved-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: var(--ink, #402A18);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.pagely-saved-content em {
+  color: var(--ink-soft, #5F4732);
+  font-size: 12px;
+}
+
+.pagely-saved-content small {
+  color: var(--muted, #7A6A56);
+  font-size: 11px;
+}
+
+.pagely-reader-empty {
+  padding: 30px;
+}
+
+.pagely-note-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.pagely-note-dialog {
+  width: min(450px, 100%);
+  background: var(--surface, #FFFCF6);
+  color: var(--ink, #402A18);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.pagely-note-dialog blockquote {
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: var(--ink-soft, #5F4732);
+}
+
+.pagely-note-dialog textarea {
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid var(--divider, #E8DDCB);
+  border-radius: 12px;
+  background: var(--paper, #FBF6EA);
+  color: var(--ink, #402A18);
+}
+
+.pagely-note-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pagely-note-actions button {
+  padding: 10px 16px;
+  border: 1px solid var(--divider, #E8DDCB);
+  border-radius: 10px;
+  background: var(--surface-alt, #F3ECE0);
+  color: var(--ink, #402A18);
+}
+
+.pagely-note-actions button:last-child {
+  background: var(--primary, #7A6244);
+  color: white;
+}
+
+.pagely-selection-toolbar {
+  position: absolute;
+  z-index: 5;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  background: var(--surface, #FFFCF6);
+  border: 1px solid var(--divider, #E8DDCB);
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.pagely-selection-toolbar button {
+  border: none;
+  background: var(--primary, #7A6244);
+  color: white;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+@media (min-width: 768px) {
+  .pagely-reading-surface {
+    padding: 60px 12%;
+  }
+
+  .pagely-reader-menu {
+    width: 380px;
+  }
+}

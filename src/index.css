@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #7A6244;
+  --primary-dark: #5C4A34;
+  --primary-light: #A78F66;
+
+  --secondary: #F4EDE0;
+  --secondary-alt: #EBE1D1;
+
+  --surface: #FFFCF6;
+  --surface-alt: #F3ECE0;
+  --paper: #FBF6EA;
+  --card: #FFFDF9;
+  --page-backdrop: #E9DFCE;
+
+  --ink: #402A18;
+  --ink-soft: #5F4732;
+  --muted: #7A6A56;
+  --divider: #E8DDCB;
+
+  --accent: #A98654;
+  --warm-accent: #C79A5B;
+  --highlight: #E9D7A4;
+  --highlight-soft: #F2E7C9;
+
+  --success: #6C8A6E;
+  --danger: #A2544A;
+
+  --status-tbr: #7C93A3;
+  --status-reading: #A98654;
+  --status-completed: #6C8A6E;
+  --status-dropped: #A5766A;
+
+  --spine: #8A7351;
+
+  --gray-100: #F3EEE4;
+  --gray-200: #E8DDCB;
+  --gray-300: #D6C9B3;
+  --gray-400: #A2917A;
+  --gray-500: #7A6A56;
+  --gray-600: #5F4732;
+  --gray-900: #402A18;
+  --gray-950: #2A1C10;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--paper);
+  font-family: Arial, sans-serif;
+  color: var(--ink);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Pagely</string>
+    <string name="title_activity_main">Pagely</string>
+    <string name="package_name">com.novelette.pagely</string>
+    <string name="custom_url_scheme">com.novelette.pagely</string>
+</resources>

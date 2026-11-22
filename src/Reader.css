@@ -1,0 +1,440 @@
+.reader-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  padding-bottom: 20px;
+}
+
+.reader-screen.dark {
+  --reader-background: #2A1C10;
+  --reader-text: #EEE5D5;
+  --reader-panel: #3A2B1D;
+  --reader-border: #574331;
+  background: var(--reader-background);
+  color: var(--reader-text);
+}
+
+.reader-screen.paper {
+  --reader-background: #FBF6EA;
+  --reader-text: #402A18;
+  --reader-panel: #FFFCF6;
+  --reader-border: #E8DDCB;
+  background: var(--reader-background);
+  color: var(--reader-text);
+}
+
+.reader-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--reader-border);
+  background: var(--reader-panel);
+}
+
+.reader-close,
+.reader-bookmark {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: var(--reader-text);
+  font-size: 20px;
+}
+
+.reader-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.reader-title h2 {
+  margin: 0;
+  overflow: hidden;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reader-title small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.reader-toolbar {
+  position: sticky;
+  top: 69px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid var(--reader-border);
+  background: var(--reader-panel);
+}
+
+.reader-toolbar button {
+  min-width: 42px;
+  padding: 8px 12px;
+  border: 1px solid var(--reader-border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--reader-text);
+}
+
+.reader-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid var(--reader-border);
+  background: var(--reader-panel);
+}
+
+.reader-settings label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.reader-settings select {
+  padding: 10px;
+  border: 1px solid var(--reader-border);
+  border-radius: 10px;
+  background: var(--reader-background);
+  color: var(--reader-text);
+}
+
+.reader-settings input[type="range"] {
+  flex: 1;
+  min-width: 120px;
+}
+
+.reader-body {
+  flex: 1;
+  min-height: 60vh;
+  overflow: hidden;
+}
+
+.reader-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: var(--muted);
+}
+
+.pdf-reader-content {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  overflow: auto;
+}
+
+.pdf-reader-content canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.epub-reader-content {
+  width: 100%;
+  height: 75vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.text-reader-content {
+  height: 75vh;
+  min-height: 500px;
+  overflow: auto;
+  padding: 30px 24px;
+  font-family: Georgia, serif;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.html-reader-content {
+  white-space: normal;
+}
+
+.html-reader-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.reader-page-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid var(--reader-border);
+  border-bottom: 1px solid var(--reader-border);
+  background: var(--reader-panel);
+}
+
+.reader-page-controls button {
+  padding: 10px 14px;
+  border: 1px solid var(--reader-border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--reader-text);
+}
+
+.reader-notes,
+.reader-bookmarks {
+  padding: 20px;
+  border-top: 1px solid var(--reader-border);
+}
+
+.reader-notes h3,
+.reader-bookmarks h3 {
+  margin: 0 0 18px;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  font-weight: normal;
+}
+
+.reader-notes textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  padding: 14px;
+  border: 1px solid var(--reader-border);
+  border-radius: 12px;
+  background: var(--reader-panel);
+  color: var(--reader-text);
+  font: inherit;
+}
+
+.reader-action-button {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+}
+
+.reader-note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--reader-border);
+  border-radius: 12px;
+  background: var(--reader-panel);
+}
+
+.reader-note-item p {
+  margin: 8px 0 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.reader-note-item button {
+  flex-shrink: 0;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--reader-text);
+}
+
+.reader-note-item blockquote,
+.selected-passage blockquote {
+  margin: 10px 0;
+  padding: 10px;
+  border-left: 3px solid var(--primary);
+  background: rgba(169, 134, 84, 0.12);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.selected-passage {
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid var(--reader-border);
+  border-radius: 12px;
+  background: var(--reader-panel);
+}
+
+.selected-passage > p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.annotation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.annotation-actions button {
+  padding: 10px 12px;
+  border: 1px solid var(--reader-border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--reader-text);
+}
+
+.reader-message {
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  left: 16px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--reader-border);
+  border-radius: 12px;
+  background: var(--reader-panel);
+  color: var(--reader-text);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reader-message button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 18px;
+}
+
+.reader-saved-panel {
+  padding: 20px;
+  border-top: 1px solid var(--reader-border);
+  background: var(--reader-panel);
+}
+
+.saved-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.saved-panel-header h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+.saved-panel-header button {
+  border: none;
+  background: transparent;
+  color: var(--reader-text);
+  font-size: 22px;
+}
+
+.reader-saved-panel h4 {
+  margin-top: 20px;
+}
+
+.saved-item-button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  border: 1px solid var(--reader-border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--reader-text);
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .reader-header {
+    padding: 12px;
+  }
+
+  .text-reader-content {
+    padding: 24px 18px;
+  }
+
+  .reader-notes,
+  .reader-bookmarks {
+    padding: 16px;
+  }
+
+  .reader-page-controls button {
+    padding: 9px 10px;
+  }
+}
+
+/* PAGELY reader themes */
+
+.reader-screen.white {
+  background: #ffffff;
+  color: #222222;
+}
+
+.reader-screen.white .reader-body {
+  background: #ffffff;
+  color: #222222;
+}
+
+.reader-screen.sepia {
+  background: #f0e1c0;
+  color: #3f2e1a;
+}
+
+.reader-screen.sepia .reader-body {
+  background: #f0e1c0;
+  color: #3f2e1a;
+}
+
+.reader-screen.dark {
+  background: #1b1a18;
+  color: #e8dfd0;
+}
+
+.reader-screen.dark .reader-body {
+  background: #1b1a18;
+  color: #e8dfd0;
+}
+
+.reader-screen.white .reader-settings,
+.reader-screen.sepia .reader-settings {
+  color: inherit;
+}
+
+.reader-settings-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.reader-settings label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.reader-settings select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--divider);
+  border-radius: 10px;
+}
+
+.reader-settings input[type="range"] {
+  width: 100%;
+}
