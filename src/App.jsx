@@ -3,6 +3,58 @@ import "./App.css";
 import Reader from "./Reader";
 import { getBooks, addBook, updateBook, deleteBook } from "./storage";
 
+
+/* Small line icons (replace the old text glyphs, incl. the chess pawn) */
+const svgProps = {
+  width: "1em",
+  height: "1em",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.8,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": "true",
+};
+
+const HomeIcon = () => (
+  <svg {...svgProps}>
+    <path d="M3 11.5 12 4l9 7.5" />
+    <path d="M5.5 10v9.5h13V10" />
+    <path d="M10 19.5v-5h4v5" />
+  </svg>
+);
+
+const ShelfIcon = () => (
+  <svg {...svgProps}>
+    <path d="M5 4.5v14" />
+    <path d="M9.5 4.5v14" />
+    <path d="m14 6.5 3.2-1 3.3 12.3-3.2.9z" />
+    <path d="M3.5 20h17" />
+  </svg>
+);
+
+const HeartIcon = () => (
+  <svg {...svgProps}>
+    <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />
+  </svg>
+);
+
+const BookOpenIcon = () => (
+  <svg {...svgProps}>
+    <path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z" />
+    <path d="M12 6.5v13" />
+  </svg>
+);
+
+const BookIcon = () => (
+  <svg {...svgProps}>
+    <path d="M6.5 3.5H17A1.5 1.5 0 0 1 18.5 5v14a1.5 1.5 0 0 1-1.5 1.5H7A2.5 2.5 0 0 1 4.5 18V5.5a2 2 0 0 1 2-2z" />
+    <path d="M8.5 3.5v17" />
+    <path d="M11.5 8h4" />
+  </svg>
+);
+
 function App() {
   const [activeTab, setActiveTab] = useState("Home");
   const [books, setBooks] = useState([]);
@@ -13,10 +65,10 @@ function App() {
   const [sort, setSort] = useState("recent");
 
   const navItems = [
-    { name: "Home", icon: "⌂" },
-    { name: "Library", icon: "▤" },
-    { name: "Community", icon: "♡" },
-    { name: "Profile", icon: "♙" },
+    { name: "Home", icon: <HomeIcon /> },
+    { name: "Library", icon: <ShelfIcon /> },
+    { name: "Community", icon: <HeartIcon /> },
+    { name: "Profile", icon: <BookOpenIcon /> },
   ];
 
   useEffect(() => {
@@ -137,7 +189,9 @@ function App() {
     <div className="pagely-app">
       <header className="app-header">
         <div className="brand">
-          <div className="brand-icon">P</div>
+          <div className="brand-icon">
+            <img className="brand-logo" src="/logo.png" alt="Pagely" />
+          </div>
           <div>
             <h1>PAGELY</h1>
             <p>Your personal reading space</p>
@@ -147,9 +201,7 @@ function App() {
         <button
           className="header-profile"
           onClick={() => setActiveTab("Profile")}
-        >
-          ♙
-        </button>
+        ><BookOpenIcon /></button>
       </header>
 
       <main className="app-content">
@@ -215,7 +267,7 @@ function App() {
                       key={book.id}
                       onClick={() => openBook(book)}
                     >
-                      <div className="simple-book-icon">▤</div>
+                      <div className="simple-book-icon"><BookIcon /></div>
 
                       <div className="simple-book-info">
                         <h4>{book.name}</h4>
@@ -323,7 +375,7 @@ function App() {
               <p className="app-message">Loading library...</p>
             ) : filteredBooks.length === 0 ? (
               <div className="empty-state">
-                <div className="empty-icon">▤</div>
+                <div className="empty-icon"><BookIcon /></div>
                 <h3>
                   {books.length === 0 ? "Your library is empty" : "No books found"}
                 </h3>
@@ -341,7 +393,7 @@ function App() {
                       className="library-cover"
                       onClick={() => openBook(book)}
                     >
-                      <span>▤</span>
+                      <span><BookIcon /></span>
                       <small>{book.type.toUpperCase()}</small>
                     </button>
 
@@ -423,7 +475,7 @@ function App() {
             </div>
 
             <div className="profile-card">
-              <div className="profile-avatar">♙</div>
+              <div className="profile-avatar"><BookOpenIcon /></div>
               <h3>Reader</h3>
               <p>Local reading profile</p>
               <button
@@ -438,7 +490,7 @@ function App() {
 
             <div className="profile-stats">
               <div className="stat-card">
-                <span className="stat-icon">▤</span>
+                <span className="stat-icon"><BookIcon /></span>
                 <p>My Books</p>
                 <h3>{books.length}</h3>
               </div>
@@ -464,7 +516,7 @@ function App() {
               <h3>Reading Activity</h3>
 
               <div className="profile-menu-item">
-                <span>▤</span>
+                <span><BookIcon /></span>
                 <div>
                   <h4>My Library</h4>
                   <p>{books.length} imported books</p>
